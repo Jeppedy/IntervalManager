@@ -18,8 +18,8 @@ void setup() {
 }
 
 void loop() {
-  static IntervalMgr blinkTimer( 5*1000 ) ;
-  static IntervalMgr panicTimer( 1*60*1000 ) ;
+  static IntervalManager blinkTimer( 5*1000 ) ;
+  static IntervalManager panicTimer( 1*60*1000 ) ;
 
   if( blinkTimer.isTimeToRun() )  blinkLED( boardLed, 10) ;    //  Blinks every given interval
   if( panicTimer.isTimeToRun() )  checkForDisconnectPanic() ;  //  Keeps track of how often to call the method
@@ -38,7 +38,7 @@ void blinkLED( int LEDPin, int times ) {
 }
 
 void checkForDisconnectPanic() {
-  static IntervalMgr disconnectTimer( 3*60*1000 ) ;  // Keeps track of how long we've been in this state
+  static IntervalManager disconnectTimer( 3*60*1000 ) ;  // Keeps track of how long we've been in this state
 
   if (Particle.connected()) {
     digitalWrite(boardLed, LOW);

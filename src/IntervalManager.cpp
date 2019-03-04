@@ -1,13 +1,13 @@
 #include <application.h>
-#include <IntervalMgr.h>
+#include <IntervalManager.h>
 
-IntervalMgr::IntervalMgr( uint32_t intervalIn ) {  
+IntervalManager::IntervalManager( uint32_t intervalIn ) {  
         // _lastRun = 0;
         _interval = intervalIn ;
         // Serial.printf("Set interval to: %ld\n", intervalIn ) ;
     }
 
-boolean IntervalMgr::isTimeToRun( boolean autoMarkAsRun) {
+boolean IntervalManager::isTimeToRun( boolean autoMarkAsRun) {
     if(millis() - _lastRun >= _interval || _lastRun == 0 ) {
         // Serial.printf("It's time!  Curr Millis %ld: Last Run %ld: Interval %ld\n", millis(), _lastRun, _interval ) ;
         if( autoMarkAsRun ) markAsRun(); 
@@ -19,7 +19,7 @@ boolean IntervalMgr::isTimeToRun( boolean autoMarkAsRun) {
     }
 }
 
-void IntervalMgr::markAsRun() {
+void IntervalManager::markAsRun() {
     // Serial.println("Marking as having run");
     // Serial.printf("Curr Millis %ld: Last Run %ld\n", millis(), _lastRun ) ;
     _lastRun = millis();

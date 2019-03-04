@@ -1,11 +1,11 @@
-#ifndef _INTERVALMGR_H_
-#define _INTERVALMGR_H_
+#ifndef _INTERVALMANAGER_H_
+#define _INTERVALMANAGER_H_
 
 #include <application.h>
 
-class IntervalMgr {
+class IntervalManager {
 public:
-    IntervalMgr( uint32_t intervalIn ) ;
+    IntervalManager( uint32_t intervalIn ) ;
 
     boolean isTimeToRun( boolean autoMarkAsRun = true) ;
     void markAsRun() ;
